@@ -1,8 +1,33 @@
+import { Suspense } from 'react'
 import './App.css'
 import Batsman from './Batsman'
 import Counter from './Counter'
+import User from './User'
+import Friends from './Friends'
+import Posts from './Posts'
+
+//  const fetchUsers = fetch('https://jsonplaceholder.typicode.com/users')
+//   .then(res => res.json())
+
+
+// const fetchFriend = async() =>{
+//   const res = await fetch('https://jsonplaceholder.typicode.com/users');
+//   return res.json();
+// }
+
+// Post Api
+const fetchPosts = async ()=>{
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  return res.json();
+}
 
 function App() {
+
+  //fetch function call
+  const fetchPost = fetchPosts();
+
+  // const fetchFriends = fetchFriend();
+
   
   function clickHandle(){
     alert('I am click')
@@ -21,7 +46,21 @@ function App() {
     <>
 
 
-      <Batsman></Batsman>
+      <Suspense fallback={<h3>Loading Posts...</h3>}>
+        <Posts fetchPost ={fetchPost} ></Posts>
+      </Suspense>
+
+
+      {/* <Suspense fallback={<h3>Loading...</h3>}>
+        <User fetchUsers={fetchUsers}></User>
+      </Suspense> */}
+
+      {/* <Suspense fallback={<h3>Loading Friends...</h3>}>
+        <Friends fetchFriends={fetchFriends}></Friends>
+      </Suspense> */}
+
+
+      {/* <Batsman></Batsman> */}
 
       {/* <Counter></Counter> */}
 
