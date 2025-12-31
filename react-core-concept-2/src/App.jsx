@@ -5,6 +5,8 @@ import Counter from './Counter'
 import User from './User'
 import Friends from './Friends'
 import Posts from './Posts'
+import Player from './Player'
+import CountReset from './CountReset'
 
 //  const fetchUsers = fetch('https://jsonplaceholder.typicode.com/users')
 //   .then(res => res.json())
@@ -16,15 +18,15 @@ import Posts from './Posts'
 // }
 
 // Post Api
-const fetchPosts = async ()=>{
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-  return res.json();
-}
+// const fetchPosts = async ()=>{
+//   const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+//   return res.json();
+// }
 
 function App() {
 
   //fetch function call
-  const fetchPost = fetchPosts();
+  // const fetchPost = fetchPosts();
 
   // const fetchFriends = fetchFriend();
 
@@ -45,10 +47,11 @@ function App() {
   return (
     <>
 
+      {/* <Player></Player>
 
       <Suspense fallback={<h3>Loading Posts...</h3>}>
         <Posts fetchPost ={fetchPost} ></Posts>
-      </Suspense>
+      </Suspense> */}
 
 
       {/* <Suspense fallback={<h3>Loading...</h3>}>
@@ -69,6 +72,9 @@ function App() {
       <button onClick={handleClick3}>Click3</button>
       <button onClick={()=>alert('I am click4')}>Click4</button>
       <button onClick={()=>handleClick4(5)}>Click4</button> */}
+
+      <CountReset></CountReset>
+
     </>
   )
 }
