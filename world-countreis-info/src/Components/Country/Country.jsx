@@ -24,6 +24,7 @@ const Country = ({ country, onVisited}) => {
             <img src={country.flags.png} alt={country.name.common}></img>
             <p>Independent: {country.independent ? "Free" : "Not Free"}</p>
             <p>Population: {country.population}</p>
+            {/* <button onClick={()=>handleVisited(country)}> */}
             <button onClick={handleVisited}>
                {Visited ? "Visited" : "Not Visited"}
             </button>
